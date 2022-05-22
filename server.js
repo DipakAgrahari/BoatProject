@@ -1,9 +1,8 @@
 const express = require('express');
-const userreg = require('./routes/userreg');
 const busignessreg = require('./routes/bussreg');
 const busignesslogin = require('./routes/busslogin');
 const userlogin = require('./routes/userlogin');
-
+const userregister = require('./routes/usereg')
 const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config();
@@ -12,10 +11,10 @@ app.use(cors());
 
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-app.use('/userRegestration', userreg);
-app.use('/businessRegestrtion', busignessreg);
-app.use('/businessRegestrtion', busignesslogin);
-app.use('/businessRegestrtion', userlogin);
+app.use("/", userregister);
+app.use("/", busignessreg);
+app.use("/", busignesslogin);
+app.use("/", userlogin);
 
 
 var port = process.env.PORT || 3000;

@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
-
+var connection = mongoose.createConnection(process.env.MONGO_URI);
+var autoIncrement = require('mongoose-auto-increment');
+autoIncrement.initialize(connection);
 const userSchema = mongoose.Schema({
-    OwnerId: { type: Number, required: true },
+    Email: { type: String, required: true },
     Name: { type: String, required: true },
     PrimaryContactName: { type: String, required: true },
     PrimaryContactNumber: { type: Number, required: true },
@@ -17,13 +19,19 @@ const userSchema = mongoose.Schema({
     Landmark: { type: String, required: true },
     Rating: { type: String, default: null },
     Star: { type: String, required: true },
+    token: { type: String },
     IsApproved: { type: String, required: true },
     IsActive: { type: String, required: true },
     ApprovalOrLicenseIDUri: { type: String, required: true },
-    ImageURL: { type: String, default: null },
-    Boats: { type: String, default: null },
-    password: { type: String, required: true }
+    ImageURL: { type: Boolean, default: null },
+    Boats: { type: Array, default: null },
+    Password: { type: String, required: true }
 });
-
-const userModel = mongoose.model('Users', userSchema);
+userSchema.plugin(autoIncrement.plugin, {
+    model: 'businesses',
+    field: 'OwnerId',
+    startAt: 1000,
+    incrementBy: 1
+});
+const userModel = mongoose.model('businesses', userSchema);
 module.exports = userModel;
