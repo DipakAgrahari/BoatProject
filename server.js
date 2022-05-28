@@ -7,6 +7,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 var fileUpload = require('express-fileupload');
 var imageupload = require("./routes/imgupload")
+var metadata = require("./routes/metadata")
 require('dotenv').config();
 const app = express();
 app.use(cors());
@@ -19,7 +20,8 @@ app.use("/", userregister);
 app.use("/", busignessreg);
 app.use("/", busignesslogin);
 app.use("/", userlogin);
-app.use("/", imageupload)
+app.use("/", imageupload);
+app.use("/", metadata);
 
 var port = process.env.PORT || 3000;
 app.listen(port, () => {

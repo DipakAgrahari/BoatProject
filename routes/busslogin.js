@@ -1,6 +1,5 @@
 require('dotenv').config({ debug: process.env.DEBUG })
 let express = require('express');
-let fs = require('fs');
 let router = express.Router();
 const bcrypt = require("bcrypt")
 var jwt = require('jsonwebtoken');

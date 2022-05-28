@@ -4,6 +4,8 @@ let express = require('express');
 var path = require('path');
 const fs = require('fs')
 let router = express.Router();
+const User = require("../models/owner");
+
 // cloudinary.config({
 //     cloud_name: 'schoolsyncmessage',
 //     api_key: '229264686284394',
