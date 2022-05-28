@@ -23,8 +23,18 @@ const userSchema = mongoose.Schema({
     IsApproved: { type: String, required: true },
     IsActive: { type: String, required: true },
     ApprovalOrLicenseIDUri: { type: String, required: true },
-    ImageURL: { type: Boolean, default: null },
-    Boats: { type: Array, default: null },
+    Boats: [{
+        BoatID: { type: String, required: true },
+        BoatName: { type: String, required: true },
+        Type: { type: String, required: true },
+        NoOfRooms: { type: Number, required: true },
+        NoOfBedrooms: { type: Number, required: true },
+        CostPerNight: { type: String, required: true },
+        ImageURL: { type: Array, required: true },
+        Classification: { type: String, required: true },
+        Verified: { type: Boolean, required: true }
+
+    }],
     Password: { type: String, required: true }
 });
 userSchema.plugin(autoIncrement.plugin, {

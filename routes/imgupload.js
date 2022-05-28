@@ -58,7 +58,3 @@ router.post('/uploadBoatImage', auth, function(req, res) {
 });
 
 module.exports = router;
-
-// if (path.extname(filename) === (".jpg") || (".png") || (".bmp") || (".gif") || (".jpeg") || (".html")) {
-//     filename = path.extname(filename);
-// }
