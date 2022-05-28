@@ -1,6 +1,5 @@
 require('dotenv').config({ debug: process.env.DEBUG })
 let express = require('express');
-let fs = require('fs');
 let router = express.Router();
 require("../config/database").connect();
 const bcrypt = require("bcrypt")

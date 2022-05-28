@@ -19,7 +19,7 @@ router.post("/businessLogin", async(req, res) => {
         const user = await User.findOne({ Email });
         if (user && (await bcrypt.compare(Password, user.Password))) {
             // Create token
-            const token = jwt.sign({ user_id: user.Name, Email },
+            const token = jwt.sign({ user_id: user.Name, Email, ownerId: user.OwnerId },
                 process.env.TOKEN_KEY, {
                     expiresIn: "1h",
                 }
@@ -32,6 +32,7 @@ router.post("/businessLogin", async(req, res) => {
             res.status(200).json(user);
         } else {
             res.status(400).json({ msg: "Invalid Credentials" });
+
         }
     } catch (err) {
         console.log(err);
