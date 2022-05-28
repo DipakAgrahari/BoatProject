@@ -1,24 +1,26 @@
 let express = require('express');
 let router = express.Router();
+const { randomUUID } = require('crypto'); // Added in: node v14.17.0
 
-const BusinessModel= require('../models/owner')
-const authMiddleware=require('../middlewares/auth')
+const BusinessModel = require('../models/owner')
+const authMiddleware = require('../middlewares/auth')
 
-router.post("/addUpdateBoat",authMiddleware, (req, res) => {
+router.post("/addBoat", authMiddleware, (req, res) => {
     console.log(req.user)
-    
+    console.log(randomUUID());
+
     var newBoat = {
-        BoatID: req.body.BoatID,
-        BoatName:req.body.BoatName,
-        Type:req.body.Type,
-        NoOfRooms:req.body.NoOfRooms,
-        NoOfBedrooms:req.body.NoOfBedrooms,
-        CostPerNight:req.body.CostPerNight,
-        ImageURL:req.body.ImageURL,
-        Classification:req.body.Classification,
-        Verified:req.body.Verified
+        BoatID: randomUUID().toString(),
+        BoatName: req.body.BoatName,
+        Type: req.body.Type,
+        NoOfRooms: req.body.NoOfRooms,
+        NoOfBedrooms: req.body.NoOfBedrooms,
+        CostPerNight: req.body.CostPerNight,
+        ImageURL: req.body.ImageURL,
+        Classification: req.body.Classification,
+        Verified: req.body.Verified
     }
-    
+
     // {
     //     "OwnerId":111,
     //     "BoatID": 555,
@@ -31,23 +33,26 @@ router.post("/addUpdateBoat",authMiddleware, (req, res) => {
     //     "Classification":"ABC",
     //     "Verified":true
     // }
-    
-    BusinessModel.findOne({ OwnerId: req.user.OwnerId }).then((result) => {  //Will work after code change by dipak
+
+    console.log(req.user)
+
+    BusinessModel.findOne({ OwnerId: req.user.ownerId }).then((result) => {  //Will work after code change by dipak
+        console.log(result)
         var boatArray = result.Boats
         boatArray = [...boatArray, newBoat]
         console.log(boatArray)
-    
+
         var update = {
             $set: {
                 Boats: boatArray
             }
         }
-    
-        BusinessModel.findOneAndUpdate({ OwnerId: req.user.OwnerId }, update).then((result) => {
+
+        BusinessModel.findOneAndUpdate({ OwnerId: req.user.ownerId }, update).then((result) => {
             console.log(result)
             res.status(200).json({
-                message:"db updated",
-                status:"Success"
+                message: "db updated",
+                status: "Success"
             })
         })
     })
