@@ -3,22 +3,23 @@ require('dotenv').config({ debug: process.env.DEBUG })
 let express = require('express');
 let router = express.Router();
 const User = require("../models/owner");
+const auth = require("../middleware/auth");
 
-router.post("/addmetadata", (req, res) => {
-
+router.post("/addmetadata", auth, (req, res) => {
+    const Authdata = req.user
     var newBoat = {
         BoatID: randomUUID().toString(),
-        BoatName: "ABC1",
-        Type: "ABC1",
-        NoOfRooms: 2,
-        NoOfBedrooms: 5,
-        CostPerNight: "RS 12356",
-        ImageURL: "ABC",
-        Classification: "ABC",
+        BoatName: req.body.BoatName,
+        Type: req.body.Type,
+        NoOfRooms: req.body.NoOfRooms,
+        NoOfBedrooms: req.body.NoOfBedrooms,
+        CostPerNight: req.body.CostPerNight,
+        ImageURL: req.body.ImageURL,
+        Classification: req.body.Classification,
         Verified: true
     }
 
-    User.findOne({ OwnerId: 1003 }).then((result) => { //Will work after code change by dipak
+    User.findOne({ OwnerId: Authdata.ownerId }).then((result) => { //Will work after code change by dipak
         var boatArray = result.Boats
         boatArray = [...boatArray, newBoat]
         console.log(boatArray)
@@ -29,7 +30,7 @@ router.post("/addmetadata", (req, res) => {
             }
         }
 
-        User.findOneAndUpdate({ OwnerId: 1003 }, update).then((result) => {
+        User.findOneAndUpdate({ OwnerId: Authdata.ownerId }, update).then((result) => {
             console.log(result)
             res.status(200).json({
                 message: "db updated",
@@ -40,21 +41,21 @@ router.post("/addmetadata", (req, res) => {
 });
 
 
-router.post("/updatemetadata", (req, res) => {
-
+router.post("/updatemetadata", auth, (req, res) => {
+    const Authdata = req.user
     var updatedBoat = {
-        BoatID: "dc8ca9cc-e129-4afc-ba34-06037be16ea9",
-        BoatName: "ABC1",
-        Type: "ABC1",
-        NoOfRooms: 2,
-        NoOfBedrooms: 3,
-        CostPerNight: "RS 123554845",
-        ImageURL: "ABC",
-        Classification: "ABC",
+        BoatID: req.body.BoatID,
+        BoatName: req.body.BoatName,
+        Type: req.body.Type,
+        NoOfRooms: req.body.NoOfRooms,
+        NoOfBedrooms: req.body.NoOfBedrooms,
+        CostPerNight: req.body.CostPerNight,
+        ImageURL: req.body.ImageURL,
+        Classification: req.body.Classification,
         Verified: true
     }
 
-    User.findOne({ OwnerId: 1003 }).then((result) => { //Will work after code change by dipak
+    User.findOne({ OwnerId: Authdata.ownerId }).then((result) => {
         var boatArray = result.Boats
         var filteredBoatArray = boatArray.filter(el => {
             return el.BoatID != updatedBoat.BoatID
@@ -69,7 +70,7 @@ router.post("/updatemetadata", (req, res) => {
             }
         }
 
-        User.findOneAndUpdate({ OwnerId: 1003 }, update).then((result) => {
+        User.findOneAndUpdate({ OwnerId: Authdata.ownerId }, update).then((result) => {
             console.log(result)
             res.status(200).json({
                 message: "db updated",

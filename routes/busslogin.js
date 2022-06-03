@@ -20,7 +20,7 @@ router.post("/businessLogin", async(req, res) => {
             // Create token
             const token = jwt.sign({ user_id: user.Name, Email, ownerId: user.OwnerId },
                 process.env.TOKEN_KEY, {
-                    expiresIn: "1h",
+                    expiresIn: "12h",
                 }
             );
 
