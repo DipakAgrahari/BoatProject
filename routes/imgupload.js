@@ -66,54 +66,52 @@ router.post('/uploadBoatImage', auth, async function(req, res) {
         }
         console.log(filename[i])
     }
+    imageurldb();
 
+    function imageurldb() {
+        let result = arr.map(a => a.ImageUrl);
+        console.log(result);
+        var imageadd = {
+            BoatID: req.body.BoatID,
+            BoatName: req.body.BoatName,
+            Type: req.body.Type,
+            NoOfRooms: req.body.NoOfRooms,
+            NoOfBedrooms: req.body.NoOfBedrooms,
+            CostPerNight: req.body.CostPerNight,
+            ImageURL: result,
+            Classification: req.body.Classification,
+            Verified: true
+        }
+        User.findOne({ OwnerId: Authdata.OwnerId }).then((result) => {
+            var boatArray = result.Boats
+            var filteredBoatArray = boatArray.filter(el => {
+                return el.BoatID != imageadd.BoatID
+            })
 
-    // } 
-    //else {
-    // if (filename.name.endsWith(".jpg") || filename.name.endsWith(".png") || filename.name.endsWith(".bmp") || filename.name.endsWith(".gif")) {
-    //     imagename = filename.name.slice(0, -4);
-    // } else {
-    //     if (filename.name.endsWith(".jpeg") || filename.name.endsWith(".html")) {
-    //         imagename = filename.name.slice(0, -5);
-    //     }
-    // }
-    // var newPath = process.cwd() + "/Images/" + filename.name;
-    // await filename.mv(newPath, async function(err) {
-    //     if (err) {
-    //         console.log("Error Uploading File");
-    //         console.log(err);
-    //         res.send("Error Uploading File");
-    //     } else {
-    //         await cloudinary.uploader.upload(
-    //             newPath,
-    //             function(result) {
-    //                 console.log(result);
-    //                 console.log(result.url);
-    //                 var ImageInfo = {
-    //                     "ImageName": filename.name,
-    //                     "ImageUrl": result.url,
-    //                 };
-    //                 arr.push(ImageInfo);
-    //                 fs.unlinkSync(newPath);
-    //             }, {
-    //                 public_id: imagename,
-    //             });
-    //     }
-    // });
-    // }
+            filteredBoatArray = [...filteredBoatArray, imageadd]
+            console.log(filteredBoatArray)
+
+            var update = {
+                $set: {
+                    Boats: filteredBoatArray
+                }
+            }
+
+            User.findOneAndUpdate({ OwnerId: Authdata.OwnerId }, update).then((result) => {
+                console.log(result)
+                res.status(200).json({
+                    message: "db updated",
+                    status: "Success"
+                })
+            })
+        })
+    }
     res.json(arr);
 });
 
 module.exports = router;
 
 
-
-// var ImageInfo = {
-//     "ImageName": filename,
-//     "ImageUrl": result.url,
-// };
-// console.log(ImageInfo)
-//res.json(ImageInfo);
 
 // var imageadd = {
 //     BoatID: req.body.BoatID,

@@ -12,10 +12,17 @@ var boatimage = require("./routes/boatimage");
 var getowner = require("./routes/getowner");
 var getuser = require("./routes/getuser");
 var ownerboat = require("./routes/ownerboat");
-
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsDoc = require("swagger-jsdoc");
 require('dotenv').config();
 const app = express();
 app.use(cors());
+const fs = require("fs")
+const customCss = fs.readFileSync((process.cwd() + "/swagger.css"), 'utf8');
+const swaggerDocument = require('./swagger.json');
+
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument, { customCss }));
+
 
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));

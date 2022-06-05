@@ -7,7 +7,6 @@ const userSchema = mongoose.Schema({
     Mobile: { type: String, required: true },
     Dob: { type: String, required: true },
     Gender: { type: String, required: true },
-    Document: { type: String, default: null },
     Password: { type: String, required: true },
 });
 

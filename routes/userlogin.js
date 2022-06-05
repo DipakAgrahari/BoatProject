@@ -4,7 +4,7 @@ let fs = require('fs');
 let router = express.Router();
 const User = require('../models/user');
 
-router.get('/test1', (req, res) => {
+router.get('/test', (req, res) => {
     res.send("test api v02 working");
 });
 

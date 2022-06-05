@@ -1,0 +1,836 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a NodeJS Boat project to demonstrate Swagger Documentation",
+        "version": "1.0.0",
+        "title": "Boats API",
+        "contact": {
+            "email": "dipakdip33@gmail.com"
+        }
+    },
+    "schemes": ["http"],
+    "host": "localhost:3000",
+    "basePath": "/",
+
+
+    "paths": {
+        "/allboatimage": {
+            "get": {
+                "summary": "Get all the image url from owner's boat",
+                "description": "Get all the image url from owner's boat",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+
+
+        "/ownerboatimage": {
+            "get": {
+                "summary": "get owner's boat image url",
+                "description": "get owner's boat image url",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "req body",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "ownerId": {
+                                "type": "object",
+                                "$ref": "#/definitions/ownerId"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/businessLogin": {
+            "post": {
+                "summary": "Business login",
+                "description": "Business login",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "req body",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "": {
+                                "type": "object",
+                                "$ref": "#/definitions/login"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/businessRegistration": {
+            "post": {
+                "summary": "Register the owner details",
+                "description": "Register the owner details",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "req parameter's",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "": {
+                                "type": "object",
+                                "$ref": "#/definitions/BussinessReg"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+
+        "/getallowner": {
+            "get": {
+                "summary": "Get all owner's details",
+                "description": "Get all owner's details",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/getowner": {
+            "get": {
+                "summary": "Get specific owner detail",
+                "description": "Get specific owner detail",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Required parameters",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "": {
+                                "type": "object",
+                                "$ref": "#/definitions/ownerId"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/getalluser": {
+            "get": {
+                "summary": "Get all user details",
+                "description": "Get all user details",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/getuser": {
+            "get": {
+                "summary": "Get specific user details",
+                "description": "Get specific user details",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Required parameter",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "": {
+                                "type": "object",
+                                "$ref": "#/definitions/getuser"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/uploadBoatImage": {
+            "post": {
+                "summary": "Upload boat image",
+                "description": "Upload boat image",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Required Parameters",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "": {
+                                "type": "object",
+                                "$ref": "#/definitions/uploadBoatImage"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/addmetadata": {
+            "post": {
+                "summary": "Save meta data of boat",
+                "description": "Save meta data of boat",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Required Parameter",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "": {
+                                "type": "object",
+                                "$ref": "#/definitions/metadata"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/updatemetadata": {
+            "post": {
+                "summary": "Update the metadata of boat",
+                "description": "Update the metadata of boat",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Required Parameter",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "": {
+                                "type": "object",
+                                "$ref": "#/definitions/metadata"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/ownerallboat": {
+            "get": {
+                "summary": "Get all detail of boat from specific owner",
+                "description": "Get all detail of boat from specific owner",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Required Parameter",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "": {
+                                "type": "object",
+                                "$ref": "#/definitions/ownerId"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/ownerboat": {
+            "get": {
+                "summary": "Get specific detail of owner's boats",
+                "description": "Get specific detail of owner's boats",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Required Parameter",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "": {
+                                "type": "object",
+                                "$ref": "#/definitions/ownerboat"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/allboatfromowner": {
+            "get": {
+                "summary": "Get all detail of owner's boats",
+                "description": "Get all detail of owner's boats",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/userreg": {
+            "post": {
+                "summary": "Save detail of user's",
+                "description": "Save detail of user's",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Required Parameter",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "": {
+                                "type": "object",
+                                "$ref": "#/definitions/userreg"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/userLogin": {
+            "post": {
+                "summary": "User's Login",
+                "description": "User's Login",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Required Parameter",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "task": {
+                                "type": "object",
+                                "$ref": "#/definitions/login"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/test": {
+            "get": {
+                "summary": "Test api",
+                "description": "Test api",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "todosResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "task": {
+                    "type": "string"
+                },
+                "assignee": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "Task": {
+            "type": "object",
+            "properties": {
+                "task": {
+                    "type": "string"
+                },
+                "assignee": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "ownerId": {
+            "type": "object",
+            "properties": {
+                "ownerId": {
+                    "type": "string"
+                }
+            }
+        },
+        "ownerboat": {
+            "type": "object",
+            "properties": {
+                "ownerId": {
+                    "type": "string"
+                },
+                "BoatID": {
+                    "type": "string"
+                }
+            }
+        },
+        "login": {
+            "type": "object",
+            "properties": {
+                "Email": {
+                    "type": "string"
+                },
+                "Password": {
+                    "type": "string"
+                }
+            }
+        },
+        "userreg": {
+            "type": "object",
+            "properties": {
+                "Email": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "Country": {
+                    "type": "string"
+                },
+                "Mobile": {
+                    "type": "number"
+                },
+                "Dob": {
+                    "type": "string"
+                },
+                "Gender": {
+                    "type": "string"
+                },
+                "Password": {
+                    "type": "string"
+                },
+                "ConfirmPassword": {
+                    "type": "string"
+                }
+            }
+        },
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "BoatName": {
+                    "type": "string"
+                },
+                "Type": {
+                    "type": "string"
+                },
+                "NoOfRooms": {
+                    "type": "string"
+                },
+                "NoOfBedrooms": {
+                    "type": "string"
+                },
+                "CostPerNight": {
+                    "type": "string"
+                },
+                "ImageURL": {
+                    "type": "string"
+                },
+                "Classification": {
+                    "type": "string"
+                }
+            }
+        },
+
+        "getuser": {
+            "type": "object",
+            "properties": {
+                "Email": {
+                    "type": "string"
+                }
+            }
+        },
+        "uploadBoatImage": {
+            "type": "object",
+            "properties": {
+                "picture": {
+                    "type": "form Data(file)"
+                }
+            }
+        },
+        "BussinessReg": {
+            "type": "object",
+            "properties": {
+                "Email": {
+                    "type": "string"
+                },
+                "Name": {
+                    "type": "string"
+                },
+                "PrimaryContactName": {
+                    "type": "string"
+                },
+                "PrimaryContactNumber": {
+                    "type": "number"
+                },
+                "SecondaryContactName": {
+                    "type": "string"
+                },
+                "SecondaryContactNumber": {
+                    "type": "number"
+                },
+                "Country": {
+                    "type": "string"
+                },
+                "State": {
+                    "type": "string"
+                },
+                "City": {
+                    "type": "string"
+                },
+                "Address": {
+                    "type": "string"
+                },
+                "PinCode": {
+                    "type": "number"
+                },
+                "Longitude": {
+                    "type": "string"
+                },
+                "Latitude": {
+                    "type": "string"
+                },
+                "Landmark": {
+                    "type": "string"
+                },
+                "Rating": {
+                    "type": "string"
+                },
+                "Star": {
+                    "type": "number"
+                },
+                "IsApproved": {
+                    "type": "string"
+                },
+                "IsActive": {
+                    "type": "string"
+                },
+                "ApprovalOrLicenseIDUri": {
+                    "type": "string"
+                },
+                "ImageURL": {
+                    "type": "array"
+                },
+                "Boats": {
+                    "type": "array"
+                },
+                "Password": {
+                    "type": "string"
+                },
+                "ConfirmPassword": {
+                    "type": "string"
+                }
+            }
+        },
+        "InvalidResponse": {
+            "type": "object",
+            "properties": {
+                "statusCode": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+
+        }
+    }
+}

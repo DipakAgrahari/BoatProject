@@ -4,7 +4,6 @@ let router = express.Router();
 const auth = require("../middleware/auth");
 const User = require('../models/owner');
 
-
 router.get("/allboatimage", auth, (req, res) => {
     try {
         arr = [];
@@ -24,7 +23,7 @@ router.get("/allboatimage", auth, (req, res) => {
 router.get("/ownerboatimage", auth, (req, res) => {
     try {
         const { ownerId } = req.body;
-        User.findOne({ OwnerId: ownerId }).then((result) => { //Will work after code change by dipak
+        User.findOne({ OwnerId: ownerId }).then((result) => {
             var boatArray = result.Boats
             console.log(result.Boats)
             console.log(boatArray)

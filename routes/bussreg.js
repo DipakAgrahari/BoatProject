@@ -5,9 +5,6 @@ require("../config/database").connect();
 const bcrypt = require("bcrypt")
 
 const ownerUser = require('../models/owner');
-router.get('/test1', (req, res) => {
-    res.send("test api v02 working");
-});
 
 router.post("/businessRegistration", async(req, res) => {
     try {

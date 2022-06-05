@@ -30,7 +30,6 @@ router.post("/userreg", async(req, res) => {
             Mobile: req.body.Mobile,
             Dob: req.body.Dob,
             Gender: req.body.Gender,
-            Document: req.body.Document,
             Password: hashedPassword
         });
 
