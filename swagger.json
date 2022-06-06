@@ -31,9 +31,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -53,13 +59,7 @@
                     "description": "req body",
                     "required": true,
                     "schema": {
-                        "type": "object",
-                        "properties": {
-                            "ownerId": {
-                                "type": "object",
-                                "$ref": "#/definitions/ownerId"
-                            }
-                        }
+                        "$ref": "#/definitions/ownerId"
                     }
                 }],
                 "responses": {
@@ -73,9 +73,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -92,13 +98,7 @@
                     "description": "req body",
                     "required": true,
                     "schema": {
-                        "type": "object",
-                        "properties": {
-                            "": {
-                                "type": "object",
-                                "$ref": "#/definitions/login"
-                            }
-                        }
+                        "$ref": "#/definitions/login"
                     }
                 }],
                 "responses": {
@@ -112,9 +112,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -131,13 +137,7 @@
                     "description": "req parameter's",
                     "required": true,
                     "schema": {
-                        "type": "object",
-                        "properties": {
-                            "": {
-                                "type": "object",
-                                "$ref": "#/definitions/BussinessReg"
-                            }
-                        }
+                        "$ref": "#/definitions/BussinessReg"
                     }
                 }],
                 "responses": {
@@ -151,9 +151,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -177,9 +183,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -196,13 +208,7 @@
                     "description": "Required parameters",
                     "required": true,
                     "schema": {
-                        "type": "object",
-                        "properties": {
-                            "": {
-                                "type": "object",
-                                "$ref": "#/definitions/ownerId"
-                            }
-                        }
+                        "$ref": "#/definitions/ownerId"
                     }
                 }],
                 "responses": {
@@ -216,9 +222,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -241,9 +253,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -260,13 +278,7 @@
                     "description": "Required parameter",
                     "required": true,
                     "schema": {
-                        "type": "object",
-                        "properties": {
-                            "": {
-                                "type": "object",
-                                "$ref": "#/definitions/getuser"
-                            }
-                        }
+                        "$ref": "#/definitions/getuser"
                     }
                 }],
                 "responses": {
@@ -280,9 +292,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -299,13 +317,7 @@
                     "description": "Required Parameters",
                     "required": true,
                     "schema": {
-                        "type": "object",
-                        "properties": {
-                            "": {
-                                "type": "object",
-                                "$ref": "#/definitions/uploadBoatImage"
-                            }
-                        }
+                        "$ref": "#/definitions/uploadBoatImage"
                     }
                 }],
                 "responses": {
@@ -319,9 +331,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -338,13 +356,8 @@
                     "description": "Required Parameter",
                     "required": true,
                     "schema": {
-                        "type": "object",
-                        "properties": {
-                            "": {
-                                "type": "object",
-                                "$ref": "#/definitions/metadata"
-                            }
-                        }
+
+                        "$ref": "#/definitions/metadata"
                     }
                 }],
                 "responses": {
@@ -358,9 +371,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -377,13 +396,7 @@
                     "description": "Required Parameter",
                     "required": true,
                     "schema": {
-                        "type": "object",
-                        "properties": {
-                            "": {
-                                "type": "object",
-                                "$ref": "#/definitions/metadata"
-                            }
-                        }
+                        "$ref": "#/definitions/metadata"
                     }
                 }],
                 "responses": {
@@ -397,9 +410,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -416,13 +435,7 @@
                     "description": "Required Parameter",
                     "required": true,
                     "schema": {
-                        "type": "object",
-                        "properties": {
-                            "": {
-                                "type": "object",
-                                "$ref": "#/definitions/ownerId"
-                            }
-                        }
+                        "$ref": "#/definitions/ownerId"
                     }
                 }],
                 "responses": {
@@ -436,9 +449,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -455,13 +474,7 @@
                     "description": "Required Parameter",
                     "required": true,
                     "schema": {
-                        "type": "object",
-                        "properties": {
-                            "": {
-                                "type": "object",
-                                "$ref": "#/definitions/ownerboat"
-                            }
-                        }
+                        "$ref": "#/definitions/ownerboat"
                     }
                 }],
                 "responses": {
@@ -475,9 +488,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -500,9 +519,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -513,19 +538,14 @@
                 "summary": "Save detail of user's",
                 "description": "Save detail of user's",
                 "produces": ["application/json"],
+
                 "parameters": [{
                     "in": "body",
                     "name": "body",
                     "description": "Required Parameter",
                     "required": true,
                     "schema": {
-                        "type": "object",
-                        "properties": {
-                            "": {
-                                "type": "object",
-                                "$ref": "#/definitions/userreg"
-                            }
-                        }
+                        "$ref": "#/definitions/userreg"
                     }
                 }],
                 "responses": {
@@ -539,9 +559,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -558,13 +584,7 @@
                     "description": "Required Parameter",
                     "required": true,
                     "schema": {
-                        "type": "object",
-                        "properties": {
-                            "task": {
-                                "type": "object",
-                                "$ref": "#/definitions/login"
-                            }
-                        }
+                        "$ref": "#/definitions/login"
                     }
                 }],
                 "responses": {
@@ -578,9 +598,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -603,9 +629,15 @@
                         }
                     },
                     "400": {
-                        "description": "Invalid status value",
+                        "description": "Invalid request value",
                         "schema": {
                             "$ref": "#/definitions/InvalidResponse"
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid Token",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidToken"
                         }
                     }
                 }
@@ -616,30 +648,7 @@
         "todosResponse": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "integer"
-                },
-                "task": {
-                    "type": "string"
-                },
-                "assignee": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "string"
-                }
-            }
-        },
-        "Task": {
-            "type": "object",
-            "properties": {
-                "task": {
-                    "type": "string"
-                },
-                "assignee": {
-                    "type": "string"
-                },
-                "status": {
+                "value": {
                     "type": "string"
                 }
             }
@@ -831,6 +840,17 @@
                 }
             }
 
+        },
+        "InvalidToken": {
+            "type": "object",
+            "properties": {
+                "statusCode": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
         }
     }
 }

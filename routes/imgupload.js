@@ -66,29 +66,31 @@ router.post('/uploadBoatImage', auth, async function(req, res) {
         }
         console.log(filename[i])
     }
-    imageurldb();
+    await imageurldb();
 
-    function imageurldb() {
-        let result = arr.map(a => a.ImageUrl);
-        console.log(result);
-        var imageadd = {
-            BoatID: req.body.BoatID,
-            BoatName: req.body.BoatName,
-            Type: req.body.Type,
-            NoOfRooms: req.body.NoOfRooms,
-            NoOfBedrooms: req.body.NoOfBedrooms,
-            CostPerNight: req.body.CostPerNight,
-            ImageURL: result,
-            Classification: req.body.Classification,
+    async function imageurldb() {
+        let imagearr = arr.map(a => a.ImageUrl);
+        console.log(imagearr);
+
+        var updatedBoat = {
+            BoatID: 'fda01083-d673-4925-8a23-f1a5189e70aa',
+            BoatName: 'ABC1',
+            Type: 'ABC1',
+            NoOfRooms: 2,
+            NoOfBedrooms: 56,
+            CostPerNight: 'RS 12354546',
+            ImageURL: imagearr,
+            Classification: 'ABC',
             Verified: true
         }
-        User.findOne({ OwnerId: Authdata.OwnerId }).then((result) => {
+
+        User.findOne({ OwnerId: Authdata.ownerId }).then((result) => {
             var boatArray = result.Boats
             var filteredBoatArray = boatArray.filter(el => {
-                return el.BoatID != imageadd.BoatID
+                return el.BoatID != updatedBoat.BoatID
             })
 
-            filteredBoatArray = [...filteredBoatArray, imageadd]
+            filteredBoatArray = [...filteredBoatArray, updatedBoat]
             console.log(filteredBoatArray)
 
             var update = {
@@ -97,7 +99,7 @@ router.post('/uploadBoatImage', auth, async function(req, res) {
                 }
             }
 
-            User.findOneAndUpdate({ OwnerId: Authdata.OwnerId }, update).then((result) => {
+            User.findOneAndUpdate({ OwnerId: Authdata.ownerId }, update).then((result) => {
                 console.log(result)
                 res.status(200).json({
                     message: "db updated",
@@ -105,45 +107,8 @@ router.post('/uploadBoatImage', auth, async function(req, res) {
                 })
             })
         })
+
     }
-    res.json(arr);
 });
 
 module.exports = router;
-
-
-
-// var imageadd = {
-//     BoatID: req.body.BoatID,
-//     BoatName: req.body.BoatName,
-//     Type: req.body.Type,
-//     NoOfRooms: req.body.NoOfRooms,
-//     NoOfBedrooms: req.body.NoOfBedrooms,
-//     CostPerNight: req.body.CostPerNight,
-//     ImageURL: result.url,
-//     Classification: req.body.Classification,
-//     Verified: true
-// }
-// User.findOne({ OwnerId: Authdata.OwnerId }).then((result) => {
-//     var boatArray = result.Boats
-//     var filteredBoatArray = boatArray.filter(el => {
-//         return el.BoatID != imageadd.BoatID
-//     })
-
-//     filteredBoatArray = [...filteredBoatArray, imageadd]
-//     console.log(filteredBoatArray)
-
-//     var update = {
-//         $set: {
-//             Boats: filteredBoatArray
-//         }
-//     }
-
-// User.findOneAndUpdate({ OwnerId: Authdata.OwnerId }, update).then((result) => {
-//     console.log(result)
-//     res.status(200).json({
-//         message: "db updated",
-//         status: "Success"
-//     })
-// })
-//  })

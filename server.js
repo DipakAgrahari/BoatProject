@@ -2,7 +2,7 @@ const express = require('express');
 const busignessreg = require('./routes/bussreg');
 const busignesslogin = require('./routes/busslogin');
 const userlogin = require('./routes/userlogin');
-const userregister = require('./routes/usereg')
+const userregister = require('./routes/usereg');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 var fileUpload = require('express-fileupload');
@@ -17,10 +17,27 @@ const swaggerJsDoc = require("swagger-jsdoc");
 require('dotenv').config();
 const app = express();
 app.use(cors());
-const fs = require("fs")
+const fs = require("fs");
 const customCss = fs.readFileSync((process.cwd() + "/swagger.css"), 'utf8');
 const swaggerDocument = require('./swagger.json');
-
+// const options = {
+//     swaggerOptions: {
+//         authAction: {
+//             JWT: {
+//                 name: 'JWT',
+//                 schema: {
+//                     type: 'apiKey',
+//                     in: 'header',
+//                     name: 'Authorization',
+//                     description: ''
+//                 },
+//                 value: 'Bearer <my own JWT token>'
+//             }
+//         }
+//     }
+// };
+// const specs = swaggerJsDoc(options);
+// swaggerUI.setup(specs)
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument, { customCss }));
 
 
