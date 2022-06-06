@@ -73,14 +73,14 @@ router.post('/uploadBoatImage', auth, async function(req, res) {
         console.log(imagearr);
 
         var updatedBoat = {
-            BoatID: 'fda01083-d673-4925-8a23-f1a5189e70aa',
-            BoatName: 'ABC1',
-            Type: 'ABC1',
-            NoOfRooms: 2,
-            NoOfBedrooms: 56,
-            CostPerNight: 'RS 12354546',
+            BoatID: req.query.BoatID,
+            BoatName: req.query.BoatName,
+            Type: req.query.Type,
+            NoOfRooms: req.query.NoOfRooms,
+            NoOfBedrooms: req.query.NoOfBedrooms,
+            CostPerNight: req.query.CostPerNight,
             ImageURL: imagearr,
-            Classification: 'ABC',
+            Classification: req.query.Classification,
             Verified: true
         }
 
