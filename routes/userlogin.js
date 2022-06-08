@@ -5,7 +5,7 @@ let router = express.Router();
 const User = require('../models/user');
 
 router.get('/test', (req, res) => {
-    res.send("test api v02 working");
+    res.send("test api v03 working");
 });
 
 router.post("/userLogin", async(req, res) => {
