@@ -8,8 +8,8 @@
             "email": "dipakdip33@gmail.com"
         }
     },
-    "schemes": ["http"],
-    "host": "localhost:3000",
+    "schemes": ["https"],
+    "host": "https://boat22.herokuapp.com",
     "basePath": "/",
 
 
