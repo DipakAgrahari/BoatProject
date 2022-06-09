@@ -9,7 +9,7 @@
         }
     },
     "schemes": ["https"],
-    "host": "https://boat22.herokuapp.com",
+    "host": "boat22.herokuapp.com",
     "basePath": "/",
 
 
