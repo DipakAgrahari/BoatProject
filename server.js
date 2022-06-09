@@ -16,7 +16,6 @@ const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
 require('dotenv').config();
 const app = express();
-app.use(cors());
 const fs = require("fs");
 const customCss = fs.readFileSync((process.cwd() + "/swagger.css"), 'utf8');
 const swaggerDocument = require('./swagger.json');
@@ -39,10 +38,13 @@ const swaggerDocument = require('./swagger.json');
 // const specs = swaggerJsDoc(options);
 // swaggerUI.setup(specs)
 var corsOptions = {
-    origin: 'https://boat22.herokuapp.com',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200, // For legacy browser support
+    methods: "GET, PUT,POST"
 }
+
 app.use(cors(corsOptions));
+
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument, { customCss }));
 
 
