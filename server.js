@@ -16,7 +16,6 @@ const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
 require('dotenv').config();
 const app = express();
-app.use(cors());
 const fs = require("fs");
 const customCss = fs.readFileSync((process.cwd() + "/swagger.css"), 'utf8');
 const swaggerDocument = require('./swagger.json');
