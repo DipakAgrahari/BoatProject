@@ -25,6 +25,7 @@ router.post("/businessRegistration", async(req, res) => {
             res.status(400).json({ msg: "password and conirm_password not matched" });
         }
         const user = new ownerUser({
+            OwnerId: req.body.Email + "_" + req.body.PrimaryContactName,
             Email: req.body.Email,
             Name: req.body.Name,
             PrimaryContactName: req.body.PrimaryContactName,

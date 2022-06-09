@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
-var connection = mongoose.createConnection(process.env.MONGO_URI);
-var autoIncrement = require('mongoose-auto-increment');
-autoIncrement.initialize(connection);
 const userSchema = mongoose.Schema({
+    OwnerId: { type: String, required: true },
     Email: { type: String, required: true },
     Name: { type: String, required: true },
     PrimaryContactName: { type: String, required: true },
@@ -37,11 +35,6 @@ const userSchema = mongoose.Schema({
     }],
     Password: { type: String, required: true }
 });
-userSchema.plugin(autoIncrement.plugin, {
-    model: 'businesses',
-    field: 'OwnerId',
-    startAt: 1000,
-    incrementBy: 1
-});
+
 const userModel = mongoose.model('businesses', userSchema);
 module.exports = userModel;
