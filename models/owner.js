@@ -18,7 +18,7 @@ const userSchema = mongoose.Schema({
     Rating: { type: String, default: null },
     Star: { type: String, required: true },
     token: { type: String },
-    IsApproved: { type: String, required: true },
+    IsApproved: { type: Boolean, required: true },
     IsActive: { type: String, required: true },
     ApprovalOrLicenseIDUri: { type: String, required: true },
     Boats: [{

@@ -751,7 +751,7 @@
             "type": "object",
             "properties": {
                 "picture": {
-                    "type": "form Data(file)"
+                    "type": "file"
                 }
             }
         },
@@ -807,7 +807,7 @@
                     "type": "number"
                 },
                 "IsApproved": {
-                    "type": "string"
+                    "type": "boolean"
                 },
                 "IsActive": {
                     "type": "string"
@@ -816,7 +816,7 @@
                     "type": "string"
                 },
                 "Boats": {
-                    "type": "Array"
+                    "type": "array"
                 },
                 "Password": {
                     "type": "string"
