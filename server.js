@@ -38,6 +38,11 @@ const swaggerDocument = require('./swagger.json');
 // };
 // const specs = swaggerJsDoc(options);
 // swaggerUI.setup(specs)
+
+var cors = require('cors');
+app.use(cors({
+    origin: '*'
+}));
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument, { customCss }));
 
 

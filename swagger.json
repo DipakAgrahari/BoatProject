@@ -764,13 +764,13 @@
                 "Name": {
                     "type": "string"
                 },
-                "PrimaryContactName": {
+                "PrimaryName": {
                     "type": "string"
                 },
                 "PrimaryContactNumber": {
                     "type": "number"
                 },
-                "SecondaryContactName": {
+                "SecondaryName": {
                     "type": "string"
                 },
                 "SecondaryContactNumber": {
