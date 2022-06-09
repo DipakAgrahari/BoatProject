@@ -8,7 +8,7 @@ const ownerUser = require('../models/owner');
 
 router.post("/businessRegistration", async(req, res) => {
     try {
-        if (!(req.body.PrimaryContactName && req.body.Name && req.body.Address && req.body.Password && req.body.PinCode)) {
+        if (!(req.body.PrimaryName && req.body.Name && req.body.Address && req.body.Password && req.body.PinCode)) {
             return res.status(400).json({ message: "Please provide required value" });
         };
 
