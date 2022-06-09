@@ -751,7 +751,7 @@
             "type": "object",
             "properties": {
                 "picture": {
-                    "type": "file"
+                    "type": "multipart/form-data"
                 }
             }
         },
@@ -759,49 +759,49 @@
             "type": "object",
             "properties": {
                 "Email": {
-                    "type": "String"
+                    "type": "string"
                 },
                 "Name": {
-                    "type": "String"
+                    "type": "string"
                 },
                 "PrimaryName": {
-                    "type": "String"
+                    "type": "string"
                 },
                 "PrimaryContactNumber": {
                     "type": "number"
                 },
                 "SecondaryName": {
-                    "type": "String"
+                    "type": "string"
                 },
                 "SecondaryContactNumber": {
                     "type": "number"
                 },
                 "Country": {
-                    "type": "String"
+                    "type": "string"
                 },
                 "State": {
-                    "type": "String"
+                    "type": "string"
                 },
                 "City": {
-                    "type": "String"
+                    "type": "string"
                 },
                 "Address": {
-                    "type": "String"
+                    "type": "string"
                 },
                 "PinCode": {
                     "type": "number"
                 },
                 "Longitude": {
-                    "type": "String"
+                    "type": "string"
                 },
                 "Latitude": {
-                    "type": "String"
+                    "type": "string"
                 },
                 "Landmark": {
-                    "type": "String"
+                    "type": "string"
                 },
                 "Rating": {
-                    "type": "String"
+                    "type": "string"
                 },
                 "Star": {
                     "type": "number"
@@ -810,19 +810,16 @@
                     "type": "boolean"
                 },
                 "IsActive": {
-                    "type": "String"
+                    "type": "string"
                 },
                 "ApprovalOrLicenseIDUri": {
-                    "type": "String"
-                },
-                "Boats": {
-                    "type": "Array"
+                    "type": "string"
                 },
                 "Password": {
-                    "type": "String"
+                    "type": "string"
                 },
                 "ConfirmPassword": {
-                    "type": "String"
+                    "type": "string"
                 }
             }
         },
