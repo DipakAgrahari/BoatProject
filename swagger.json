@@ -815,11 +815,8 @@
                 "ApprovalOrLicenseIDUri": {
                     "type": "string"
                 },
-                "ImageURL": {
-                    "type": "array"
-                },
                 "Boats": {
-                    "type": "array"
+                    "type": "Array"
                 },
                 "Password": {
                     "type": "string"

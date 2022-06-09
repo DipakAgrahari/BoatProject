@@ -45,7 +45,6 @@ router.post("/businessRegistration", async(req, res) => {
             IsApproved: req.body.IsApproved,
             IsActive: req.body.IsActive,
             ApprovalOrLicenseIDUri: req.body.ApprovalOrLicenseIDUri,
-            ImageURL: req.body.ImageURL,
             Boats: req.body.Boats,
             Password: hashedPassword
         });
